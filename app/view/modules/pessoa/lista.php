@@ -19,6 +19,7 @@
     <body>
         <table>
 			<tr>
+                <th></th>
 				<th>ID</th>
 				<th>Nome</th>
 				<th>CPF</th>
@@ -27,12 +28,22 @@
 	
 	   		<?php foreach($model->rows as $item): ?>
 				<tr>
+                    <td><a href="/pessoa/delete?id=<?= $item->id ?>">X</a></td>
+
 		            <td><?= $item->id ?></td>
-		            <td><?= $item->nome ?></td>
+
+		            <td>
+                        <a href="/pessoa/form?id=<?= $item->id ?>"> <?= $item->nome ?> </a>
+                    </td>
+
 		            <td><?= $item->cpf ?></td>
 		            <td><?= $item->data_nascimento ?></td>
 				</tr>
 			<?php endforeach ?>
+
+            <?php if (count($model->rows) == 0): ?>
+                <td colspan="5">Nenhum registro encontrado!</td>
+            <?php endif ?>
         </table>
     </body>
 </html>
