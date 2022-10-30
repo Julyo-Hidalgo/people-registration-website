@@ -1,7 +1,6 @@
 <?php
 class pessoa_controller{
     public static function index(){//retorna a listagem de pessoas
-    	include 'model/pessoa_model.php';
         $model = new pessoa_model();
         $model->get_all_rows();	
 

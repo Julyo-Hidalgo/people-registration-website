@@ -37,8 +37,6 @@ class pessoa_dao{
 
     /* função para preencher o formulário com dados existentes -> para depois fazer o update*/
     public function select_by_id(int $id){
-        include_once 'model/pessoa_model.php';
-
         $sql = "select * from pessoa where id = ?";
 
         $stmt = $this->conexao->prepare($sql);

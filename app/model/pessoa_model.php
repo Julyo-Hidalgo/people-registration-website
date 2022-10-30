@@ -3,7 +3,6 @@ class pessoa_model{
     public $id, $nome, $cpf, $data_nascimento, $rows;
 
     public function save(){
-        include 'dao/pessoa_dao.php';
         $dao = new pessoa_dao();
 
         if (empty($this->id)){
@@ -15,14 +14,11 @@ class pessoa_model{
     }
 
     public function get_all_rows(){
-    	include 'dao/pessoa_dao.php';
-
         $dao = new pessoa_dao();
         $this->rows = $dao->select();
     }
 
     public function get_by_id(int $id){
-        include 'dao/pessoa_dao.php';
 
         $dao = new pessoa_dao();
 
@@ -32,7 +28,6 @@ class pessoa_model{
     }
 
     public function delete(int $id){
-        include 'dao/pessoa_dao.php';
         $dao = new pessoa_dao();
 
         $dao->delete($id);
